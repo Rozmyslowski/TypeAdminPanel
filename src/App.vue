@@ -1,56 +1,45 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+	<v-app>
+		<v-app-bar app> NXO Admin Panel </v-app-bar>
+		<div>
+			<v-card class="blue accent-3 mt-16 white--text" style="height: 1000px">
+				<v-navigation-drawer permanent height="1000px" class="float-left">
+					<v-divider></v-divider>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+					<v-list nav>
+						<router-link to="/">
+							<v-list-item link>
+								<v-list-item-title>
+									<v-icon>mdi-home</v-icon>Home</v-list-item-title
+								>
+							</v-list-item>
+						</router-link>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+						<v-list>
+							<v-list-group>
+								<template v-slot:activator>
+									<v-list-item-title
+										><v-icon>mdi-account-arrow-down</v-icon
+										>Administracja</v-list-item-title
+									>
+								</template>
+								<router-link to="/users">
+									<v-list-item link>
+										<v-list-item-title>Użytkownicy</v-list-item-title>
+									</v-list-item></router-link
+								>
+							</v-list-group>
+						</v-list>
+					</v-list>
+				</v-navigation-drawer>
+				<router-view />
+			</v-card>
+		</div>
+	</v-app>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
-});
-</script>
+<style>
+a {
+	text-decoration: none;
+}
+</style>
